@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Шукаю інтернет друга/подругу — офіційна сторінка</title>
+  <style>
+    :root{--accent:#2b8aef;--muted:#6b7280;--bg:#f7fafc}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg);color:#111}
+    .wrap{max-width:980px;width:calc(100% - 32px);margin:16px auto;padding:18px;background:#fff;border-radius:10px;box-shadow:0 6px 18px rgba(12,20,30,0.04)}
+    header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    header h1{font-size:20px;margin:0}
+    .lead{color:var(--muted);margin-top:6px;font-size:14px}
+    section{margin-top:20px}
+    h2{font-size:17px;margin:0 0 10px}
+    p{line-height:1.6;color:#222;margin:8px 0;font-size:15px}
+
+    /* Списки с маленькими тире как маркер */
+    ul.small-dash{list-style:none;padding-left:0;margin:8px 0}
+    ul.small-dash li{position:relative;padding-left:18px;margin:8px 0}
+    ul.small-dash li::before{content:"-";position:absolute;left:0;top:0;font-size:0.75em;line-height:1;color:#444}
+
+    .note{background:#f1f5f9;padding:10px;border-radius:8px;color:#1f2937;font-size:14px}
+    footer{margin-top:22px;color:var(--muted);font-size:13px}
+
+    /* Улучшения для мобильных устройств */
+    @media (max-width:740px){
+      .wrap{padding:14px;width:calc(100% - 24px);margin:10px auto;border-radius:8px}
+      header{flex-direction:column;align-items:flex-start;gap:6px}
+      header h1{font-size:18px}
+      .lead{font-size:13px}
+      h2{font-size:16px}
+      p, .note{font-size:14px}
+      ul.small-dash li{padding-left:16px}
+    }
+
+    @media (max-width:420px){
+      .wrap{padding:12px;width:calc(100% - 20px)}
+      header h1{font-size:17px}
+      .lead{font-size:12px}
+      p{font-size:13px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Шукаю інтернет друга/подругу</h1>
+        <div class="lead">Офіційний сайт каналу — інформація про нас і відповіді на поширені питання</div>
+      </div>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>1. Біографія каналу «Шукаю інтернет друга/подругу»</h2>
+        <p>
+          Ми — дружня спільнота, мета якої — допомогти людям знайти нових знайомих, спілкуватися та знаходити однодумців онлайн. Наш основний майданчик — <a href="https://t.me/UAfriends" target="_blank" rel="noopener">Telegram-канал @UAfriends</a>, де ми публікуємо анкети користувачів.
+        </p>
+        <p>
+          Якщо хочеш, щоб твоя анкета з’явилася в каналі — надішли її нашому боту: <a href="https://t.me/ShukayuDruga_bot" target="_blank" rel="noopener">@ShukayuDruga_bot</a>.
+        </p>
+        <p class="note">Порада: перед надсиланням анкети перевір її на ввічливість, відсутність реклами та вкажи свій Telegram-юзернейм.</p>
+      </section>
+
+      <section id="why-not">
+        <h2>2. Чому моя анкета не надсилається у канал?</h2>
+        <p>Нижче — основні причини, через які анкета може не з’явитися у публікації:</p>
+        <ul class="small-dash">
+          <li><strong>18+ контент</strong> — анкети з еротичним, оголеним або іншим контентом для дорослих не публікуються.</li>
+          <li><strong>Відсутній Telegram-юзернейм</strong> — якщо у анкети немає юзернейму, з нею неможливо зв’язатися.</li>
+          <li><strong>Образлива мова або хейт</strong> — повідомлення з агресією, дискримінацією чи приниженням людей відхиляються.</li>
+          <li><strong>Надмірна реклама / спам</strong> — анкети, які містять сторонню рекламу або посилання на комерційні пропозиції, видаляються.</li>
+          <li><strong>Не відповідає тематиці</strong> — якщо анкета шукає виключно бізнес-партнерів чи просить виконати роботу, її не публікують.</li>
+        </ul>
+        <p>Якщо анкета не пройшла — відредагуй текст і повторно надішли через бота. В разі потреби зв'яжись з адміністратором каналу.</p>
+      </section>
+
+      <section id="username">
+        <h2>3. Як створити або переглянути свій Telegram-юзернейм?</h2>
+        <p>
+          Telegram-юзернейм — це публічний нік, який починається зі знаку <code>@</code> (наприклад, <code>@MyName123</code>). Він дозволяє іншим користувачам знайти тебе та написати без номера телефону.
+        </p>
+        <p><strong>Як створити або змінити юзернейм на телефоні:</strong></p>
+        <ol>
+          <li>Відкрий додаток <strong>Telegram</strong>.</li>
+          <li>Натисни на іконку меню або свій аватар → <strong>Налаштування</strong> (Settings).</li>
+          <li>Знайди поле <strong>Ім’я користувача (Username)</strong> — введи бажаний нік (без пробілів).</li>
+          <li>Якщо нік вільний — збережи зміни. Тепер ти матимеш свій юзернейм.</li>
+        </ol>
+        <p><strong>Як переглянути юзернейм на десктопі:</strong></p>
+        <p>Відкрий Telegram Desktop → натисни на свій профіль у верхньому лівому куті — у вікні профілю ти побачиш поле <em>Username</em>.</p>
+        <p class="note">Пам’ятай: юзернейм має бути унікальним. Якщо бажаний варіант зайнятий — додай цифри або підкреслення.</p>
+      </section>
+    </main>
+
+    <footer>
+      <div style="color:var(--muted)">© «Шукаю інтернет друга/подругу»</div>
+    </footer>
+  </div>
+</body>
+</html>

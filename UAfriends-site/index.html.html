@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Шукаю інтернет друга/подругу — офіційна сторінка</title>
+<style>
+:root {
+  --accent: #2b8aef;
+  --accent-dark: #1d6fd1;
+  --muted: #6b7280;
+  --bg: #f0f4f9;
+  --white: #fff;
+  --yellow: #ffe600;
+  --blue: #2056b2;
+  --patriot-gradient: linear-gradient(90deg, #2056b2 0%, #ffe600 100%);
+}
+[data-theme="dark"] {
+  --accent: #ffd546;
+  --accent-dark: #ffe600;
+  --bg: #181e26;
+  --white: #232933;
+  --muted: #c7ccd6;
+}
+html,body {
+  height: 100%; margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg); color: #111; transition: background 0.5s, color 0.5s;
+}
+.wrap {
+  max-width: 1160px; min-width: 340px;
+  width: calc(100% - 72px);
+  margin: 40px auto; padding: 44px 40px;
+  background: var(--white);
+  border-radius: 18px;
+  box-shadow: 0 18px 48px rgba(12,20,30,0.12);
+  animation: fadeIn .8s ease;
+  transition: background 0.5s, box-shadow 0.5s;
+}
+header {
+  text-align: center; margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 12px;
+}
+header h1 {
+  font-size: 34px;
+  margin: 0;
+  color: var(--accent);
+  font-weight: 900;
+  background: var(--patriot-gradient);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+.lead {
+  color: var(--muted);
+  margin-top: 8px;
+  font-size: 17px;
+}
+.patriot-banner {
+  margin: 18px auto 0; padding: 7px 18px;
+  background: var(--patriot-gradient);
+  color: #0543a0; font-size: 17px; font-weight: 600;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 2px 8px 0 rgba(33,53,110,0.15);
+  letter-spacing: 0.5px;
+}
+.theme-switch {
+  position: absolute; top: 0; right: 0;
+  background: none; border: none;
+  cursor: pointer; outline: none;
+  padding: 0; height: 38px; width: 62px;
+}
+.theme-icon-wrap {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.theme-icon {
+  width: 36px; height: 36px;
+  display: block;
+}
+.theme-anim-circle {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  background: var(--patriot-gradient);
+  opacity: 0; pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.4s cubic-bezier(.17,.67,.83,.67);
+  animation: none;
+}
+.theme-anim-circle.active {
+  animation: themeSwitchAnim 1s cubic-bezier(.77,0,.18,1);
+  opacity: 1;
+}
+@keyframes themeSwitchAnim {
+  0% {transform: scale(0.1); opacity: 1;}
+  60% {transform: scale(2.5); opacity: 1;}
+  100% {transform: scale(0.1); opacity: 0;}
+}
+section {
+  margin-top: 38px; padding: 24px 28px;
+  background: #f9fbfd;
+  border-radius: 14px;
+  box-shadow:inset 0 0 0 1px #e3e8ef;
+  transition: background .4s;
+}
+[data-theme="dark"] section { background: #233047; box-shadow:inset 0 0 0 1.5px #1d6fd1; }
+h2 { font-size: 25px; margin: 0 0 16px; color: var(--accent-dark); font-weight: 800; }
+p, li { line-height: 1.8; color: #222; font-size: 16.5px; }
+[data-theme="dark"] p, [data-theme="dark"] li { color: #e5eaf2; }
+ul.small-dash { list-style: none; padding-left: 0; margin: 12px 0 }
+ul.small-dash li { position: relative; padding-left: 20px; }
+ul.small-dash li::before { content: "-"; position: absolute; left: 0; top: 0; font-size: 0.9em; color: #2056b2; }
+[data-theme="dark"] ul.small-dash li::before { color: #ffe600; }
+.note {
+  background: #e9f3ff; color: #1f2937;
+  padding: 14px;
+  border-left: 5px solid var(--accent);
+  border-radius: 7px; font-size: 15px;
+}
+[data-theme="dark"] .note { background: #112849; border-left-color: #ffe600; color: #eec555; }
+footer {
+  margin-top: 40px; text-align: center;
+  font-size: 16px; color: var(--muted);
+}
+.cyber-link{
+  color: var(--accent-dark); font-weight:700; text-decoration:underline; cursor:pointer;
+}
+/* Modal / fake page styles */
+.modal {
+  position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 60;
+}
+.modal.active{ display:flex; }
+.modal-backdrop{ position:absolute; inset:0; background:rgba(0,0,0,0.45); }
+.modal-card{ position:relative; max-width:760px; width:calc(100% - 40px); background:var(--white); border-radius:12px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,0.3); z-index:61; }
+.modal-close{ position:absolute; right:12px; top:12px; background:none;border:none;font-size:18px;cursor:pointer }
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+::-webkit-scrollbar { width: 10px; background: #efefef; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 8px; }
+@media (max-width:900px){
+  .wrap{padding:4vw;width:99vw;min-width:0;}
+  header h1{font-size: 22vw;}
+  section{padding:12px;}
+}
+@media (max-width:600px){
+  .wrap{padding:2vw;}
+  h2{ font-size: 16.5px }
+}
+/* Sun rays animation */
+.sun-rays{ transform-origin:16px 16px; transition:transform .8s ease; }
+[data-theme="dark"] .sun-rays{ transform: rotate(40deg); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Шукаю інтернет друга/подругу</h1>
+  <button class="theme-switch" id="themeSwitch" aria-label="Змінити тему">
+    <span class="theme-icon-wrap" aria-hidden="true">
+      <svg class="theme-icon" viewBox="0 0 32 32" role="img" aria-hidden="true">
+        <defs>
+          <radialGradient id="sunGradient" cx="0.5" cy="0.5" r="0.67">
+            <stop offset="0%" stop-color="#ffd546"/>
+            <stop offset="100%" stop-color="#ffe600"/>
+          </radialGradient>
+          <radialGradient id="moonGradient" cx="0.5" cy="0.5" r="0.8">
+            <stop offset="0%" stop-color="#ffe600"/>
+            <stop offset="100%" stop-color="#2056b2"/>
+          </radialGradient>
+        </defs>
+        <!-- Sun with rays -->
+        <g class="sun-group" transform="translate(0,0)">
+          <g class="sun-rays" id="sunRays">
+            <!-- 12 rays rotated -->
+            <g transform="translate(16,16)">
+              <!-- create rays using rects rotated around center -->
+              <g>
+                <rect x="-1" y="-12" width="2" height="6" rx="1" fill="url(#sunGradient)" transform="rotate(0)" />
+                <rect x="-1" y="-12" width="2" height="6" rx="1" fill="url(#sunGradient)" transform="rotate(30)" />
+                <rect x="-1" y="-12" width="2" height="6" rx="1" fill="url(#sunGradient)" transform="rotate(60)" />
+                <rect x="-1" y="-12" width="2" height="6" rx="1" fill="url(#sunGradient)" transform="rotate(90)" />
+                <rect x="-1" y="-12" width="2" height="6" rx="1" fill="url(#sunGradient)" transform="rotate(120)" />
+                <rect x="-1" y="-12" width="2" height="6" rx="1" fill="url(#sunGradient)" transform="rotate(150)" />
+                <rect x="-1" y="-12" width="2" height="6" rx="1" fill="url(#sunGradient)" transform="rotate(180)" />
+                <rect x="-1" y="-12" width="2" height="6" rx="1" fill="url(#sunGradient)" transform="rotate(210)" />
+                <rect x="-1" y="-12" width="2" height="6" rx="1" fill="url(#sunGradient)" transform="rotate(240)" />
+                <rect x="-1" y="-12" width="2" height="6" rx="1" fill="url(#sunGradient)" transform="rotate(270)" />
+                <rect x="-1" y="-12" width="2" height="6" rx="1" fill="url(#sunGradient)" transform="rotate(300)" />
+                <rect x="-1" y="-12" width="2" height="6" rx="1" fill="url(#sunGradient)" transform="rotate(330)" />
+              </g>
+            </g>
+          </g>
+          <circle class="sun-core" cx="16" cy="16" r="7.5" fill="url(#sunGradient)" />
+        </g>
+        <!-- Moon (keeps original path but tuned) -->
+        <path class="moon" d="M23,17a7,7 0 1,1 -8,-8a8,8 0 1,0 8,8z" fill="url(#moonGradient)" opacity="0"/>
+      </svg>
+      <span class="theme-anim-circle" id="themeAnim"></span>
+    </span>
+  </button>
+  <div class="lead">Офіційний сайт каналу — інформація про нас і відповіді на поширені питання</div>
+  <div class="patriot-banner">🇺🇦 Підтримуємо Україну! Разом до перемоги! 💙💛</div>
+</header>
+
+<main>
+<section id="about">
+<h2>1. Біографія каналу</h2>
+<p>
+Ми — дружня спільнота українців, мета якої — допомогти знайти нових знайомих, підтримувати одне одного у цей непростий час та будувати круту україномовну онлайн-спільноту. Наш основний майданчик — <a href="https://t.me/UAfriends" target="_blank" rel="noopener">Telegram-канал @UAfriends</a>, де ми публікуємо анкети користувачів.
+</p>
+<p>
+Якщо бажаєш, щоб твоя анкета з’явилася у каналі — надішли її нашому боту: <a href="https://t.me/ShukayuDruga_bot" target="_blank" rel="noopener">@ShukayuDruga_bot</a>.
+</p>
+</section>
+<section id="why-not">
+<h2>2. Чому анкета може не бути опублікована?</h2>
+<p>Нижче — основні причини, через які анкета може не з’явитися у публікації:</p>
+<ul class="small-dash">
+  <li><strong>18+ контент</strong> — анкети з еротичним чи небезпечним змістом не публікуються.</li>
+  <li><strong>Відсутній Telegram-юзернейм</strong> — якщо у анкети немає юзернейму, з нею неможливо зв’язатися. <a href="username.html" class="cyber-link" data-target="username">що таке телеграм юзернейм? (натисни на мене, щоб впізнати)</a></li>
+  <li><strong>Образлива мова або хейт</strong> — агресивні чи дискримінаційні повідомлення відхиляються.</li>
+  <li><strong>Надмірна реклама / спам</strong> — анкети з рекламними вставками видаляються.</li>
+  <li><strong>Не відповідає тематиці</strong> — бізнес-пропозиції або інший нерелевантний контент не допускаються.</li>
+</ul>
+<p>Якщо анкета не пройшла — відредагуй текст і повторно надішли через бота.<br>При потребі зв’яжись з адміністратором.</p>
+
+<!-- Перенесена порада сюди -->
+<p class="note">Порада: перед надсиланням анкети перевір її на ввічливість, відсутність реклами, та вкажи свій Telegram-юзернейм. Пишемо <b>українською!</b></p>
+
+</section>
+
+<!-- Розділ "3" більше не показується на головній — доступ через посилання (fake page/modal) -->
+
+</main>
+
+<footer>
+  <span>© Канал «Шукаю інтернет друга/подругу»</span><br>
+  <span style="color:#2056b2;font-size:14px;">Підтримай ЗСУ: <a href="https://savelife.in.ua/donate" target="_blank" rel="noopener" style="color:#2b8aef;font-weight:600;text-decoration:underline;">donate</a> 🇺🇦</span>
+</footer>
+</div>
+
+<!-- Модальне вікно (імітація окремої сторінки "username.html") -->
+<div class="modal" id="usernameModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-card" role="document">
+    <button class="modal-close" id="modalClose" aria-label="Закрити">✕</button>
+    <div id="usernameContent">
+      <h2>3. Як створити або переглянути Telegram-юзернейм?</h2>
+      <p>
+        Telegram-юзернейм — це публічний нік, який починається зі знаку <code>@</code> (наприклад, <code>@MyName123</code>). Він дозволяє іншим знайти тебе та написати без номера телефону.
+      </p>
+      <p><strong>Як створити або змінити юзернейм на телефоні:</strong></p>
+      <ol>
+        <li>Відкрий застосунок <strong>Telegram</strong>.</li>
+        <li>Свайпни по меню або натисни на свій аватар → <strong>Налаштування</strong>.</li>
+        <li>Знайди поле <strong>Ім’я користувача (Username)</strong> та введи бажаний нік (без пробілів).</li>
+        <li>Якщо нік вільний — збережи зміни.</li>
+      </ol>
+      <p><strong>Як переглянути юзернейм на комп’ютері:</strong></p>
+      <p>
+        Відкрий Telegram Desktop → натисни на свій профіль у верхньому лівому куті — поле <em>Username</em> з’явиться у вікні профілю.
+      </p>
+      <p class="note">Порада: якщо бажаний нік зайнятий — додай цифри чи символ «_».</p>
+    </div>
+  </div>
+</div>
+
+<!-- Тема JS з анімацією -->
+<script>
+const themeSwitch = document.getElementById('themeSwitch');
+const themeAnim = document.getElementById('themeAnim');
+const sunRays = document.getElementById('sunRays');
+const sunCore = document.querySelector('.sun-core');
+const moon = document.querySelector('.moon');
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  // SVG іконки: змінюємо прозорість сонця/місяця
+  if(theme==='dark'){
+    sunCore.setAttribute('opacity','0');
+    sunRays.setAttribute('opacity','0');
+    moon.setAttribute('opacity','1');
+  }else{
+    sunCore.setAttribute('opacity','1');
+    sunRays.setAttribute('opacity','1');
+    moon.setAttribute('opacity','0');
+  }
+  // Зберігаємо вибір
+  window.localStorage.setItem('theme', theme);
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light';
+  const next = current==='dark'?'light':'dark';
+  // Анімація переливання
+  themeAnim.classList.remove('active'); // reset, щоб можна було по новому
+  void themeAnim.offsetWidth;
+  themeAnim.classList.add('active');
+  setTimeout(()=>setTheme(next),140); // коротка пауза для ефекту
+  setTimeout(()=>themeAnim.classList.remove('active'),1000);
+}
+
+// Встановити тему при завантаженні
+(() => {
+  let saved = window.localStorage.getItem('theme');
+  if(!saved) {
+    saved = window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+  }
+  setTheme(saved);
+})();
+
+themeSwitch.addEventListener('click', toggleTheme);
+
+// Intercept clicks to "username.html" and show modal (imitates separate page)
+document.addEventListener('click', function(e){
+  const a = e.target.closest('a');
+  if(!a) return;
+  const href = a.getAttribute('href');
+  const target = a.dataset && a.dataset.target;
+  if(href === 'username.html' || target === 'username'){
+    e.preventDefault();
+    openUsernameModal();
+  }
+});
+
+const usernameModal = document.getElementById('usernameModal');
+const modalClose = document.getElementById('modalClose');
+const modalBackdrop = document.getElementById('modalBackdrop');
+
+function openUsernameModal(){
+  usernameModal.classList.add('active');
+  usernameModal.setAttribute('aria-hidden','false');
+}
+function closeUsernameModal(){
+  usernameModal.classList.remove('active');
+  usernameModal.setAttribute('aria-hidden','true');
+}
+modalClose.addEventListener('click', closeUsernameModal);
+modalBackdrop.addEventListener('click', closeUsernameModal);
+
+// Close on ESC
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeUsernameModal(); });
+
+</script>
+</body>
+</html>
