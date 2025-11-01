@@ -1,0 +1,21 @@
+# Секретные данные
+.env
+
+# Временные файлы бота
+bot_data.json
+ankety_log.txt
+bot.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE (PyCharm, VS Code)
+.idea/
+.vscode/
+
+# Картинки и временные файлы
+*.jpg
+*.png
+*.jpeg
